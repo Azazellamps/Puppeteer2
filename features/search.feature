@@ -5,7 +5,7 @@ Feature: Movie tickets
         When choose day 5
         When choose a time
         When choose 1 row 2 seat
-        Then the inscription appeared "Зверополис"
+        Then the inscription appeared "Вы выбрали билеты"
 
     Scenario: happy path2
         Given go to the page https://qamid.tmweb.ru/client/index.php
