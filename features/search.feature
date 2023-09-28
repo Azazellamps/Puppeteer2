@@ -23,5 +23,5 @@ Feature: Movie tickets
         When go back to the page https://qamid.tmweb.ru/client/index.php
         When choose day 5
         When choose a time
-        When choose 1 row 1 seat
+        When choose 1 row 10 seat
         Then the button "Забронировать" is not active  
