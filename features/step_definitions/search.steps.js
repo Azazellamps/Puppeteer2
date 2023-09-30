@@ -1,3 +1,9 @@
+const puppeteer = require("puppeteer");
+const chai = require("chai");
+const expect = chai.expect;
+const { Given, When, Then, Before, After } = require("cucumber");
+const { clickElement, getText} = require("../../lib/commands.js");
+
 Given("go to the page {string}", async function (string) {
   return await this.page.goto(`http://qamid.tmweb.ru/client${string}`, {
     setTimeout: 30000,
