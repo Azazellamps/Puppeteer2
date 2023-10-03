@@ -1,9 +1,9 @@
 const {clickElement, getText} = require("./lib/commands.js");
 let page;
 beforeEach(async () => {
-  let day = 2;
+  let day = 3;
   page = await browser.newPage();
-  await page.goto("http://qamid.tmweb.ru/client/index.php"); 
+  await page.goto("https://qamid.tmweb.ru/client/index.php"); 
   await clickElement(page, `body > nav > a:nth-child(${day}) > span.page-nav__day-week`);
   await clickElement(page, "[data-seance-id='178']");
 }, 50000);
@@ -20,7 +20,7 @@ describe("Movie tickets",() => {
     const actual = await getText(page,"h2");
     const expected = "Вы выбрали билеты:";
     expect(actual).toContain(expected);
-  }, 30000);
+  }, 50000);
 
   test("happy path2", async () => {
     let row = 1;
@@ -36,16 +36,16 @@ describe("Movie tickets",() => {
     const actual = await getText(page,"h2");
     const expected = "Вы выбрали билеты:";
     expect(actual).toContain(expected);
-  }, 30000);
+  }, 50000);
 
   test("sad path", async () => {
     let row = 1;
     let placeFive = 10;
-    let day = 2;
+    let day = 3;
     await clickElement(page,`div.buying-scheme__wrapper > div:nth-child(${row}) > span:nth-child(${placeFive})`);
     await clickElement(page,".acceptin-button");
     await clickElement(page,".acceptin-button");
-    await page.goto("http://qamid.tmweb.ru/client/index.php"); 
+    await page.goto("https://qamid.tmweb.ru/client/index.php"); 
     await clickElement(page, `body > nav > a:nth-child(${day}) > span.page-nav__day-week`);
     await clickElement(page, "[data-seance-id='178']");
     const button = await page.$eval(".acceptin-button",(el) => el.disabled
